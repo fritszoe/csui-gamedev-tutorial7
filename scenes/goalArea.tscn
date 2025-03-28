@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7jpob1johp4t"]
+
+[ext_resource type="Script" path="res://scripts/goalarea.gd" id="1_3fb7n"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_pal5y"]
+radius = 2.31274
+
+[node name="GoalArea" type="Area3D"]
+script = ExtResource("1_3fb7n")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_pal5y")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

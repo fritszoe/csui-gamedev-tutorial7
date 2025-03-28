@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://do7oou6voxwew"]
+
+[ext_resource type="Script" path="res://scenes/disappearing_box.gd" id="1_5q2lr"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_iy81g"]
+
+[node name="World1" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+use_collision = true
+
+[node name="Room1" type="CSGBox3D" parent="CSGCombiner3D"]
+use_collision = true
+flip_faces = true
+size = Vector3(10, 4, 10)
+
+[node name="BoxHole" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0251176, -4.14288, -0.138195)
+flip_faces = true
+size = Vector3(9.94583, 4.32275, 6.02124)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0147095, -0.00393677, 8.94992)
+flip_faces = true
+size = Vector3(10.0367, 4.01495, 7.90735)
+
+[node name="jumpbox1" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.50321, 1.62734)
+use_collision = true
+
+[node name="jumpbox2" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5401, -1.68178)
+use_collision = true
+size = Vector3(1, 0.933044, 1)
+script = ExtResource("1_5q2lr")
+
+[node name="Area3D" type="Area3D" parent="jumpbox2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="jumpbox2/Area3D"]
+shape = SubResource("SphereShape3D_iy81g")
+
+[connection signal="body_entered" from="jumpbox2/Area3D" to="jumpbox2" method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="jumpbox2/Area3D" to="jumpbox2" method="_on_area_3d_body_exited"]

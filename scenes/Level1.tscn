@@ -1,0 +1,113 @@
+[gd_scene load_steps=5 format=3 uid="uid://ci4gg7krxj4qb"]
+
+[ext_resource type="PackedScene" uid="uid://do7oou6voxwew" path="res://scenes/world_1.tscn" id="1_1wwne"]
+[ext_resource type="PackedScene" uid="uid://b6feg7cau8vtc" path="res://scenes/Player.tscn" id="2_bwov6"]
+[ext_resource type="PackedScene" uid="uid://b7jpob1johp4t" path="res://scenes/goalArea.tscn" id="3_yh8dv"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ecqap"]
+albedo_color = Color(0.85098, 0.188235, 0.054902, 1)
+metallic = 1.0
+
+[node name="Level1" type="Node3D"]
+
+[node name="World1" parent="." instance=ExtResource("1_1wwne")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.96488, 0)
+
+[node name="ObjLamp" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3.96777)
+
+[node name="Lamp" type="CSGCombiner3D" parent="ObjLamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0640869, 0.0107422, -0.000732422)
+
+[node name="bawahLamp" type="CSGCylinder3D" parent="ObjLamp/Lamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0595909, 0.0366211, 0)
+radius = 0.174966
+height = 0.15414
+cone = true
+
+[node name="tiangLamp" type="CSGCylinder3D" parent="ObjLamp/Lamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0700244, 0.320557, 0)
+radius = 0.0390901
+height = 0.537093
+
+[node name="kerucutLamp" type="CSGPolygon3D" parent="ObjLamp/Lamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.066433, 0.0345764, -0.0032959)
+polygon = PackedVector2Array(0.00192642, 0.42923, -0.000331879, 0.598297, 0.157444, 0.587555, 0.300846, 0.320961)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 8
+material = SubResource("StandardMaterial3D_ecqap")
+
+[node name="FloatingCrystal" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.49587, 0, -3.96777)
+
+[node name="Lamp" type="CSGCombiner3D" parent="FloatingCrystal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0640869, 0.0107422, -0.000732422)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="FloatingCrystal/Lamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0640869, 1.75176, 0.0861282)
+light_color = Color(1, 0.492559, 0.565067, 1)
+light_energy = 3.051
+omni_range = 50.0
+
+[node name="bawahLamp" type="CSGCylinder3D" parent="FloatingCrystal/Lamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0595909, 0.0366211, 0)
+radius = 0.174966
+height = 0.15414
+cone = true
+
+[node name="tiangLamp" type="CSGCylinder3D" parent="FloatingCrystal/Lamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0700244, 0.320557, 0)
+radius = 0.0390901
+height = 0.537093
+
+[node name="kerucutLamp" type="CSGPolygon3D" parent="FloatingCrystal/Lamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0701771, 0.786774, -0.0032959)
+polygon = PackedVector2Array(0.00303984, 0.0652771, 0.00348997, 0.819847, 0.157444, 0.587555, 0.163623, 0.310547)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 8
+material = SubResource("StandardMaterial3D_ecqap")
+
+[node name="FloatingCrystal2" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.8471, 0, -3.96777)
+
+[node name="Lamp" type="CSGCombiner3D" parent="FloatingCrystal2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0640869, 0.0107422, -0.000732422)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="FloatingCrystal2/Lamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0640869, 1.60637, 0.0979691)
+light_color = Color(1, 0.492559, 0.565067, 1)
+light_energy = 3.051
+omni_range = 50.0
+
+[node name="bawahLamp" type="CSGCylinder3D" parent="FloatingCrystal2/Lamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0595909, 0.0366211, 0)
+radius = 0.174966
+height = 0.15414
+cone = true
+
+[node name="tiangLamp" type="CSGCylinder3D" parent="FloatingCrystal2/Lamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0700244, 0.320557, 0)
+radius = 0.0390901
+height = 0.537093
+
+[node name="kerucutLamp" type="CSGPolygon3D" parent="FloatingCrystal2/Lamp"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0701771, 0.786774, -0.0032959)
+polygon = PackedVector2Array(0.00303984, 0.0652771, 0.00348997, 0.819847, 0.157444, 0.587555, 0.163623, 0.310547)
+mode = 1
+spin_degrees = 360.0
+spin_sides = 8
+material = SubResource("StandardMaterial3D_ecqap")
+
+[node name="Player" parent="." instance=ExtResource("2_bwov6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.972412, 9.55945)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.57854, 0.40345)
+visible = false
+light_energy = 3.051
+omni_range = 50.0
+
+[node name="GoalArea" parent="." instance=ExtResource("3_yh8dv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.953735, -5.85321)
